@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VIT Semester Result</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#">
+      <span class="brand-mark">V</span>
+      <span>VIT<span class="brand-dot">.</span>Results</span>
+    </a>
+    <span class="semester-tag">SEMESTER 5 &nbsp;•&nbsp; 2024–25</span>
+  </header>
+
+  <main>
+    <section class="intro">
+      <p class="eyebrow">Academic performance</p>
+      <h1>Prepare your <em>semester result.</em></h1>
+      <p class="intro-copy">Enter your marks for four subjects and get a quick weighted result. MSE contributes 30% and ESE contributes 70%.</p>
+    </section>
+
+    <form id="result-form">
+      <section class="panel student-panel">
+        <div class="section-heading">
+          <div>
+            <p class="step">01 / Student details</p>
+            <h2>Tell us who you are</h2>
+          </div>
+          <span class="required-note">* Required</span>
+        </div>
+        <div class="student-fields">
+          <label>
+            Student name <span>*</span>
+            <input id="student-name" type="text" placeholder="e.g. Aarav Sharma" required>
+          </label>
+          <label>
+            PRN / Roll number <span>*</span>
+            <input id="student-prn" type="text" placeholder="e.g. 1234567890" required>
+          </label>
+        </div>
+      </section>
+
+      <section class="panel marks-panel">
+        <div class="section-heading">
+          <div>
+            <p class="step">02 / Enter marks</p>
+            <h2>Subject performance</h2>
+          </div>
+          <div class="legend"><span class="mse-dot"></span>MSE 30% <span class="ese-dot"></span>ESE 70%</div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Subject</th>
+                <th>MSE <small>/ 30</small></th>
+                <th>ESE <small>/ 70</small></th>
+                <th>Credits</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="subject-number">01</span><input name="subject" value="Web Technology" aria-label="Subject 1"></td>
+                <td><input class="mark" name="mse" type="number" min="0" max="30" placeholder="00" required></td>
+                <td><input class="mark" name="ese" type="number" min="0" max="70" placeholder="00" required></td>
+                <td><input class="credit" name="credit" type="number" min="1" max="10" value="4" required></td>
+              </tr>
+              <tr>
+                <td><span class="subject-number">02</span><input name="subject" value="Database Management" aria-label="Subject 2"></td>
+                <td><input class="mark" name="mse" type="number" min="0" max="30" placeholder="00" required></td>
+                <td><input class="mark" name="ese" type="number" min="0" max="70" placeholder="00" required></td>
+                <td><input class="credit" name="credit" type="number" min="1" max="10" value="4" required></td>
+              </tr>
+              <tr>
+                <td><span class="subject-number">03</span><input name="subject" value="Computer Networks" aria-label="Subject 3"></td>
+                <td><input class="mark" name="mse" type="number" min="0" max="30" placeholder="00" required></td>
+                <td><input class="mark" name="ese" type="number" min="0" max="70" placeholder="00" required></td>
+                <td><input class="credit" name="credit" type="number" min="1" max="10" value="4" required></td>
+              </tr>
+              <tr>
+                <td><span class="subject-number">04</span><input name="subject" value="Software Engineering" aria-label="Subject 4"></td>
+                <td><input class="mark" name="mse" type="number" min="0" max="30" placeholder="00" required></td>
+                <td><input class="mark" name="ese" type="number" min="0" max="70" placeholder="00" required></td>
+                <td><input class="credit" name="credit" type="number" min="1" max="10" value="4" required></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <button class="calculate-button" type="submit">Calculate result <span>→</span></button>
+      </section>
+    </form>
+
+    <section id="result" class="result-section" aria-live="polite">
+      <div class="result-header">
+        <div>
+          <p class="step">03 / Your result</p>
+          <h2 id="result-title">Result summary</h2>
+        </div>
+        <button class="reset-button" id="reset-button" type="button">Reset marks</button>
+      </div>
+      <div class="summary-grid">
+        <div class="score-card highlight">
+          <span>Semester percentage</span>
+          <strong id="percentage">—</strong>
+          <small>out of 100</small>
+        </div>
+        <div class="score-card">
+          <span>SGPA</span>
+          <strong id="sgpa">—</strong>
+          <small>on a 10-point scale</small>
+        </div>
+        <div class="score-card">
+          <span>Overall grade</span>
+          <strong id="grade">—</strong>
+          <small id="status">Complete the form to view</small>
+        </div>
+      </div>
+      <div class="subject-results" id="subject-results"></div>
+    </section>
+  </main>
+
+  <footer>
+    <span>VIT Semester Result</span>
+    <span>MSE 30% + ESE 70%</span>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
